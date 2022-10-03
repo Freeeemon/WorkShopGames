@@ -1,0 +1,228 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "MarianneExtraBold";
+  src: url("fonts/MarianneExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "MarianneBold";
+  src: url("fonts/MarianneBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "MarianneRegular";
+  src: url("fonts/MarianneRegular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Minecraft";
+  src: url("fonts/Minecraft.woff2") format("woff2");
+}
+/* Flashlight Overlay */
+:root {
+  cursor: none;
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+}
+
+:root:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%, rgb(0, 0, 0) 100%);
+}
+
+body {
+  background-color: #090A1A;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 50px;
+}
+.header img {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  width: 8%;
+}
+
+main {
+  margin: 14rem 2.5rem 2.5rem;
+}
+main .title h1 {
+  color: white;
+  font-family: "MarianneExtraBold", serif;
+  font-size: 74px;
+  width: 70%;
+}
+main .title span {
+  color: #E30613;
+}
+main .container .video {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+main .container .video h2 {
+  font-size: 30px;
+  color: white;
+  font-family: "MarianneExtraBold", serif;
+}
+main .container .video h2 span {
+  color: #1e1e1e;
+}
+main .container .video h2 a {
+  text-decoration: none;
+}
+main .container .video h2:hover span {
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 120px #fff, 0 0 160px #fff;
+}
+main .container .clues {
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  margin: 15rem 9.5rem 5.5rem;
+  /* Accordion styles */
+}
+main .container .clues h2 {
+  color: white;
+  font-family: "MarianneExtraBold", serif;
+}
+main .container .clues input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+main .container .clues .accordions {
+  display: flex;
+}
+main .container .clues .accordions .col {
+  flex: 1;
+}
+main .container .clues .tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+main .container .clues .tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  margin-top: 30px;
+}
+main .container .clues .tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #1E1E1E;
+  font-family: "MarianneExtraBold", serif;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 35px;
+  /* Icon */
+}
+main .container .clues .tab-label:hover {
+  background: #e30613;
+}
+main .container .clues .tab-label::after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+}
+main .container .clues .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: black;
+  font-family: "MarianneExtraBold", serif;
+  font-weight: normal;
+  background: white;
+  transition: all 0.35s;
+  border-radius: 10px;
+}
+main .container .clues .tab-content img {
+  width: 50%;
+  margin-left: 4rem;
+}
+main .container .clues .tab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: black;
+  cursor: pointer;
+}
+main .container .clues .tab-close:hover {
+  background: white;
+}
+main .container .clues input:checked + .tab-label {
+  background: #090A1A;
+}
+main .container .clues input:checked + .tab-label::after {
+  transform: rotate(90deg);
+}
+main .container .clues input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+main .container .clues .rules h3 {
+  color: white;
+  font-family: "MarianneExtraBold", serif;
+  font-size: 23px;
+}
+main .container .infos {
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  margin: 15rem 9.5rem 5.5rem;
+}
+main .container .infos .text h3 {
+  font-size: 20px;
+  color: white;
+  font-family: "MarianneExtraBold", serif;
+}
+main .container .infos img {
+  width: 50% !important;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  :root:before {
+    display: none;
+  }
+  .header img {
+    width: 20%;
+  }
+  main .title h1 {
+    font-size: 40px;
+  }
+  .container .video {
+    flex-direction: column;
+    margin: 15rem 0 0 !important;
+  }
+  .container .video video {
+    width: 370px;
+  }
+  .container .clues {
+    gap: 3rem !important;
+    flex-direction: column;
+    margin: 15rem 0 0 !important;
+  }
+  .container .infos {
+    gap: 3rem !important;
+    flex-direction: column;
+    margin: 15rem 0 0 !important;
+  }
+  .container .infos img {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
